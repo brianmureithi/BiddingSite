@@ -18,10 +18,13 @@ Route::get('/', function () {
 });
 
 
-Route::group(['middleware' => ['auth']], function () { 
+Route::group(['middleware' => ['auth'],
+                ['prefix' => 'admin'] ], function () { 
     Route::get('dashboard', function () {
         return view('backend.pages.dashboard');
     })->name('dashboard');
+
+    Route::get('/add_product', [App\Http\Controllers\AuctionProductController::class, 'index'])->name('addproduct');
     
     
 

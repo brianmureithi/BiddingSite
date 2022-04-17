@@ -16,7 +16,7 @@
         </a>
         <ul id="components-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{route('addproduct')}}">
               <i class="bi bi-circle"></i><span>Add Product</span>
             </a>
           </li>
@@ -131,11 +131,15 @@
       </li><!-- End Register Page Nav -->
  --}}
       <li class="nav-item">
-        <a class="nav-link collapsed" href="">
+        <a  style="cursor: pointer !important;"class="nav-link collapsed"  onclick="event.preventDefault();
+        document.getElementById('logout-form').submit();">
           <i class="bi bi-box-arrow-in-left"></i>
           <span>Logout</span>
         </a>
-      </li><!-- End Login Page Nav -->
+      </li>
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+        @csrf
+    </form><!-- End Login Page Nav -->
 
      {{--  <li class="nav-item">
         <a class="nav-link collapsed" href="pages-error-404.html">
