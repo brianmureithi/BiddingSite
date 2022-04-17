@@ -24,8 +24,8 @@
                 {{--   <p class="text-center small">Enter your username & password to login</p> --}}
                 </div>
 
-                <form class="row g-3 needs-validation" novalidate>
-
+                <form class="row g-3 needs-validation" method="post" action="{{route('login')}}"novalidate>
+                  @csrf
                   <div class="col-12">
                     <label for="yourUsername" class="form-label">Email</label>
                     <div class="input-group has-validation">
