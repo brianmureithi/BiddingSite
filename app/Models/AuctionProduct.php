@@ -14,6 +14,7 @@ class AuctionProduct extends Model
         "image",
         "end_date",
         "tag",
+        "rrp",
         "min_bid"
      
     ];

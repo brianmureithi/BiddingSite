@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+
 use App\Models\AuctionProduct;
 use Illuminate\Http\Request;
 
@@ -36,6 +37,42 @@ class AuctionProductController extends Controller
      */
     public function store(Request $request)
     {
+      
+try{
+        $request->validate
+        ([
+            'name'=>'required',
+            'description'=>'required',
+            'image'=>'required',
+            'end_date'=>'required',
+            'tag'=>'required',
+            'min_bid'=>'required',
+            'rrp'=>'required',
+        ]);
+        $image =$request->image;
+        $filename=time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('storage/img/productImages',$filename);
+        AuctionProduct::create([
+          'name'=>$request->name,
+          'description'=>$request->description,
+          'end_date'=>$request->end_date,
+          'tag'=>$request->tag,
+          'min_bid'=>$request->min_bid,
+          'rrp'=>$request->rrp,
+          'image'=>$filename,
+         
+         
+          
+      ]);
+      return back()->with('success','Auction Product added successfully');
+    
+    }
+
+      catch(Exception $e){
+        return back()->with('fail','Auction Product added failed');
+
+      }
+        
         //
     }
 
