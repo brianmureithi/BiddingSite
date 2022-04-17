@@ -19,8 +19,9 @@ return new class extends Migration
             $table->text('description');
             $table->text('image');
             $table->text('tag');
+            $table->text('rrp');
             $table->integer('min_bid');
-            $table->date('end_date');
+            $table->datetime('end_date');
             $table->timestamps();
         });
        
