@@ -115,29 +115,32 @@
           
           @forelse ( $auctionProducts as $product )
             
-         
-
+    
+       
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
             <div class="course-item">
               <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh"alt="{{ $product->name }}">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>{{$product->name}}</h4>
-                  <p class="price">$169</p>
+                  <h4>RRP: KES{{$product->rrp}}</h4>
+                  <p class="price">{{$product->min_bid}}</p>
                 </div>
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                    <span>Antonio</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>
+                <h3><a href="#">{{$product->name}}</a></h3>
+                <p>{!!$product->description!!}</p>
+                <div class="mpesa-desc d-flex">
+                  <h2>Bid using Mpesa</h2>
+                  <p>Send just {{$product->min_bid}} to paybill <b>000000</b> with <b> {{$product->tag}}</b> and your amount as account name.</p>
+                  <p> For Example: <b> {{$product->tag}}</b> 120 to bid KES 120
+                    <p>Grab your phone and get ready to pay kes <b>{{$product->min_bid}}</b></p>
+                </div>
+                <div>
+                  <form class="bid-form" method="POST" action="">
+                    <input class="form-input form-control" type="number" placeholder="enter phonenumber e.g 0712345678"/>
+                    <input class="form-input form-control" type="number" placeholder="enter Bid amount e.g 32"/>
+                    <button type="submit" class="btn-submit btn btn-lg btn-success">Submit</button>
+                  </form>
+
                 </div>
               </div>
             </div>
