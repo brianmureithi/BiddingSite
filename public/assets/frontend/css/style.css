@@ -437,6 +437,25 @@ transition-timing-function: ease-in;
 .bid-item{
   background-color: #e5eefd;
 }
+.winner-box{
+  display: flex;
+  flex-direction: row;
+
+}
+.winner-table{
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+  background: #f8f7f7;
+  padding: 4px;
+}
+.tb-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin-bottom: 6px;
+  border-bottom: 1px solid rgb(170, 168, 168);
+}
 
 /*--------------------------------------------------------------
 # Trainers

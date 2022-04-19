@@ -165,7 +165,7 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
                   @endphp" class="form-control d-none " id="end_date" name="end_date"/>
                 
                 <div class="count-down">
-                  <p class="countdown-p"> Auction ends in:</p> <p class="countdown-p" id="countdown"> </p>
+                   <p class="countdown-p" id="countdown"> </p>
                 </div>
                 </div>
               </div>
@@ -194,43 +194,46 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Services</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Completed Auctions</h2>
+         <p>Winners</p>
         </div>
 
         <div class="row">
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bxl-dribbble"></i></div>
-              <h4><a href="">Lorem Ipsum</a></h4>
-              <p>Voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi</p>
-            </div>
+          <div class="col-xl-6 col-lg-6 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+            <div class="icon-box winner-box">
+              <div class="box-item col-lg-6 col-xl-6">
+                <img src="{{URL:: asset('/storage/img/motor.jpg') }}" class="img-fluid" style=" margin-top:10px; margin-bottom:5px;"alt="{{ $product->name }}">
+              </div>
+              <div class="box-item col-lg-6 col-xl-6">
+                <h2>Honda Motorbike</h2>
+                <p>Jincheng Motorbike 150cc</p>
+                <div class="winner-table">
+                  <div class="tb-item">
+                    <h6>Bidder</h6>
+                    <p> Brian Murithi</p>
+                  </div>
+                  <div class="tb-item">
+                    <h6>RRP</h6>
+                    <p> KES 100,000</p>
+                  </div>
+                  <div class="tb-item">
+                    <h6>Winning Bid</h6>
+                    <p> KES 20</p>
+                  </div>
+                  <div class="tb-item">
+                    <h6>End Time Bid</h6>
+                    <p> Feb. 23, 2022, 0:11</p>
+                  </div>
+
+
+                </div>
+                
+                
+              </div>
+               </div>
           </div>
 
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-file"></i></div>
-              <h4><a href="">Sed ut perspici</a></h4>
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-tachometer"></i></div>
-              <h4><a href="">Magni Dolores</a></h4>
-              <p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia</p>
-            </div>
-          </div>
-
-          <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
-            <div class="icon-box">
-              <div class="icon"><i class="bx bx-layer"></i></div>
-              <h4><a href="">Nemo Enim</a></h4>
-              <p>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis</p>
-            </div>
-          </div>
-
+        
         </div>
 
       </div>
@@ -243,10 +246,10 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
         <div class="row">
           <div class="col-lg-9 text-center text-lg-start">
             <h3>Call To Action</h3>
-            <p> Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <p> Go back to home page</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Call To Action</a>
+            <a class="cta-btn align-middle" href="#">Bid now</a>
           </div>
         </div>
 
@@ -258,8 +261,8 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Portfolio</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Gallery</h2>
+          
         </div>
 
         <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
@@ -436,8 +439,8 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Contact</h2>
-          <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia fugiat sit in iste officiis commodi quidem hic quas.</p>
+          <h2>Contact Us</h2>
+         
         </div>
 
         <div class="row">
@@ -593,7 +596,7 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
 let countDownDate=document.getElementById("end_date").value;
 
 
-console.log(countDownDate);
+
 
 
 // Update the count down every 1 second
@@ -601,7 +604,7 @@ var x = setInterval(function() {
 
   // Get today's date and time
   var now = new Date().getTime();
-  console.log(now);
+
 
   // Find the distance between now and the count down date
   var distance = countDownDate - now;
@@ -613,13 +616,17 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  document.getElementById("countdown").innerHTML ="This auction closes in" days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
-  if (distance < 0) {
+  if (distance < 18000000) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "EXPIRED";
+    document.getElementById("countdown").innerHTML = "This auction is almost closing";
+  }
+  else if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "The auction closes any minute from now";
   }
 }, 1000);
 </script>
