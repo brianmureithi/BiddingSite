@@ -18,6 +18,7 @@ class AuctionProductController extends Controller
         //
         return view('backend.pages.addAuctionProduct');
     }
+    
 
     /**
      * Show the form for creating a new resource.

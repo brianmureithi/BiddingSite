@@ -23,11 +23,11 @@ class AuctionProductFactory extends Factory
            
                 'name' => $this->faker->name(),
                 'description' => $this->faker->paragraph(),
-                'image' => $this->faker->file($sourceDir, $targetDir, false),
+                'image' => $this->faker->text,
                 'end_date' => $this->faker->dateTime($max='now', $timezone = null),
-                'tag' => $this->faker->stri(),
-                'rrp' => $this->faker->rrp(),
-                'min_bid' => $this->faker->min_bid(),
+                'tag' => $this->faker->stateAbbr(),
+                'rrp' => $this->faker->phonenumber(),
+                'min_bid' => $this->faker->phonenumber(),
               
                
         ];
