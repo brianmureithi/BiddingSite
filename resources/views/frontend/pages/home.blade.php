@@ -117,13 +117,13 @@
             
     
        
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch bid-item">
             <div class="course-item">
-              <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh"alt="{{ $product->name }}">
+              <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh; margin-top:10px; margin-bottom:5px;"alt="{{ $product->name }}">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>RRP: KES{{$product->rrp}}</h4>
-                  <p class="price">{{$product->min_bid}}</p>
+                  <h4>RRP: KES {{$product->rrp}}</h4>
+                  <p class="price"><b>kes {{$product->min_bid}}</b></p>
                 </div>
 
                 <h3><a href="#">{{$product->name}}</a></h3>
@@ -142,13 +142,39 @@
                   </form>
 
                 </div>
+                <div class="countdown">
+                  @php
+                  
+ $date1 = new DateTime($product->end_date);
+ $date3=$date1->format("Y-m-d H:i:s.v");
+ $date4= 1000 * strtotime($date3);
+
+/* $now = new DateTime(); */
+
+
+/* $difference_in_seconds = $date1->format('U') - $now->format('U');
+$date1 = new DateTime("2010-12-08 16:12:12");
+$now = new DateTime();
+
+$difference_in_seconds = $date1->format('U') - $now->format('U'); */
+                 /*  $formatted_date = $product->end_date = date('Y/m/d H:i:s'); */
+        @endphp
+
+                  <input type="text" value="@php echo $date4
+                    
+                  @endphp" class="form-control d-none " id="end_date" name="end_date"/>
+                
+                <div class="count-down">
+                  <p class="countdown-p"> Auction ends in:</p> <p class="countdown-p" id="countdown"> </p>
+                </div>
+                </div>
               </div>
             </div>
           </div> <!-- End Course Item-->
           @empty
           <div class="alert alert-danger">
             There are no aution products available at the moment
-
+           
           </div>
             
           @endforelse
@@ -806,6 +832,43 @@
       </div>
     </div>
   </footer><!-- End Footer -->
+ 
+
+<script>
+// Set the date we're counting down to
+let countDownDate=document.getElementById("end_date").value;
+
+
+console.log(countDownDate);
+
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>

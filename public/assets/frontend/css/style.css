@@ -423,6 +423,20 @@ transition-timing-function: ease-in;
   color: #0a6d3d ;
   
 }
+.count-down{
+  display: flex;
+  margin-top: 6px;
+  flex-direction: row;
+  justify-content: flex-start;
+}
+.countdown-p{
+  font-size: 20px;
+  color:tomato;
+  font-weight: 500;
+}
+.bid-item{
+  background-color: #e5eefd;
+}
 
 /*--------------------------------------------------------------
 # Trainers
