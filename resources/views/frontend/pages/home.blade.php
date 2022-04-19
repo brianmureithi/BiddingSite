@@ -115,29 +115,58 @@
           
           @forelse ( $auctionProducts as $product )
             
-         
-
-          <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+    
+       
+          <div class="col-lg-4 col-md-6 d-flex align-items-stretch bid-item">
             <div class="course-item">
-              <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh"alt="{{ $product->name }}">
+              <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh; margin-top:10px; margin-bottom:5px;"alt="{{ $product->name }}">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>{{$product->name}}</h4>
-                  <p class="price">$169</p>
+                  <h4>RRP: KES {{$product->rrp}}</h4>
+                  <p class="price"><b>kes {{$product->min_bid}}</b></p>
                 </div>
 
-                <h3><a href="course-details.html">Website Design</a></h3>
-                <p>Et architecto provident deleniti facere repellat nobis iste. Id facere quia quae dolores dolorem tempore.</p>
-                <div class="trainer d-flex justify-content-between align-items-center">
-                  <div class="trainer-profile d-flex align-items-center">
-                    <img src="assets/img/trainers/trainer-1.jpg" class="img-fluid" alt="">
-                    <span>Antonio</span>
-                  </div>
-                  <div class="trainer-rank d-flex align-items-center">
-                    <i class="bx bx-user"></i>&nbsp;50
-                    &nbsp;&nbsp;
-                    <i class="bx bx-heart"></i>&nbsp;65
-                  </div>
+                <h3><a href="#">{{$product->name}}</a></h3>
+                <p>{!!$product->description!!}</p>
+                <div class="mpesa-desc d-flex">
+                  <h2>Bid using Mpesa</h2>
+                  <p>Send just {{$product->min_bid}} to paybill <b>000000</b> with <b> {{$product->tag}}</b> and your amount as account name.</p>
+                  <p> For Example: <b> {{$product->tag}}</b> 120 to bid KES 120
+                    <p>Grab your phone and get ready to pay kes <b>{{$product->min_bid}}</b></p>
+                </div>
+                <div>
+                  <form class="bid-form" method="POST" action="">
+                    <input class="form-input form-control" type="number" placeholder="enter phonenumber e.g 0712345678"/>
+                    <input class="form-input form-control" type="number" placeholder="enter Bid amount e.g 32"/>
+                    <button type="submit" class="btn-submit btn btn-lg btn-success">Submit</button>
+                  </form>
+
+                </div>
+                <div class="countdown">
+                  @php
+                  
+ $date1 = new DateTime($product->end_date);
+ $date3=$date1->format("Y-m-d H:i:s.v");
+ $date4= 1000 * strtotime($date3);
+
+/* $now = new DateTime(); */
+
+
+/* $difference_in_seconds = $date1->format('U') - $now->format('U');
+$date1 = new DateTime("2010-12-08 16:12:12");
+$now = new DateTime();
+
+$difference_in_seconds = $date1->format('U') - $now->format('U'); */
+                 /*  $formatted_date = $product->end_date = date('Y/m/d H:i:s'); */
+        @endphp
+
+                  <input type="text" value="@php echo $date4
+                    
+                  @endphp" class="form-control d-none " id="end_date" name="end_date"/>
+                
+                <div class="count-down">
+                  <p class="countdown-p"> Auction ends in:</p> <p class="countdown-p" id="countdown"> </p>
+                </div>
                 </div>
               </div>
             </div>
@@ -145,7 +174,7 @@
           @empty
           <div class="alert alert-danger">
             There are no aution products available at the moment
-
+           
           </div>
             
           @endforelse
@@ -803,6 +832,43 @@
       </div>
     </div>
   </footer><!-- End Footer -->
+ 
+
+<script>
+// Set the date we're counting down to
+let countDownDate=document.getElementById("end_date").value;
+
+
+console.log(countDownDate);
+
+
+// Update the count down every 1 second
+var x = setInterval(function() {
+
+  // Get today's date and time
+  var now = new Date().getTime();
+  console.log(now);
+
+  // Find the distance between now and the count down date
+  var distance = countDownDate - now;
+
+  // Time calculations for days, hours, minutes and seconds
+  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the result in the element with id="demo"
+  document.getElementById("countdown").innerHTML = days + "d " + hours + "h "
+  + minutes + "m " + seconds + "s ";
+
+  // If the count down is finished, write some text
+  if (distance < 0) {
+    clearInterval(x);
+    document.getElementById("countdown").innerHTML = "EXPIRED";
+  }
+}, 1000);
+</script>
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
