@@ -5,18 +5,18 @@
  <header id="header" class="fixed-top ">
     <div class="container d-flex align-items-center">
 
-      <h1 class="logo me-auto"><a href="index.html">Fast Bid</a></h1>
+      <h1 class="logo me-auto"><a href="index.html">BIDIKA</a></h1>
       <!-- Uncomment below if you prefer to use an image logo -->
       <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
       <nav id="navbar" class="navbar">
         <ul>
           <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">Products</a></li>
-          <li><a class="nav-link scrollto" href="#services">Winners</a></li>
-          <li><a class="nav-link   scrollto" href="#portfolio">Gallery</a></li>
+          <li><a class="nav-link scrollto" href="#products">Products</a></li>
+          <li><a class="nav-link scrollto" href="#winningbids">Winners</a></li>
+          <li><a class="nav-link   scrollto" href="#gallery">Gallery</a></li>
           {{-- <li><a class="nav-link scrollto" href="#team">FAQs</a></li> --}}
-          <li class="dropdown nav-link scrollto"><a href="#faq"><span>FAQs</span> <i class="bi bi-chevron-down"></i></a>
+          <li class="dropdown "><a href="#faq" class="nav-link scrollto" ><span>FAQs</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a href="#">Terms and Conditions</a></li>
              {{--  <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -34,7 +34,7 @@
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
-          <li><a class="getstarted scrollto" href="#about">Get Started</a></li>
+          <li><a class="getstarted scrollto" href="#products">Start Bidding</a></li>
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -49,11 +49,12 @@
       <div class="row">
         <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
           <h1>BID LOW, AND WIN BIG!</h1>
-          <h2>Deposit a minimum of 20ksh via Mpesa to paybill 00000, and your unique low bid on an item. If a fridge is on offer, and you bid is 74ksh, enter 74</h2>
+          <h2 style="">Deposit a minimum of 20ksh via Mpesa to paybill <span style="color:#ffc72d"><b>00000</b></span>, and your unique low bid on an item.
+           If a fridge is on offer, and you bid is <span style="color:#ffc72d">74ksh</span>, enter <span style="color:#ffc72d">74</span></h2>
           
-          <h3>Once the bid closes, and yours is the lowest bid, your buy the fridge at 74 kshs</h3>
+          <h3>Once the bid closes, and yours is the lowest, your get the fridge at 74 kshs</h3>
           <div class="d-flex justify-content-center justify-content-lg-start">
-            <a href="#about" class="btn-get-started scrollto">Get Started</a>
+            <a href="#products" class="btn-get-started scrollto" style="">Start Bidding</a>
             <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i class="bi bi-play-circle"></i><span>Watch Video</span></a>
           </div>
         </div>
@@ -104,40 +105,65 @@
 
     <!-- ======= About Us Section ======= -->
    
-    <section id="about" class="about">
+    <section id="products" class="about">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
           <h2>Current Auctions</h2>
         </div>
 
-        <div class="row" data-aos="zoom-in" data-aos-delay="100">
-          
+        <div class="row bid-items" data-aos="zoom-in" data-aos-delay="100">
+          @if($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </div>
+                    @endif
+          {{-- Alert messages --}}
+       @if ($message = Session::get('success-bid'))
+       <div class="alert alert-success">
+                   <p>{{ $message }}</p>
+       </div>
+       @elseif($message = Session::get('fail-bid'))
+           <div class="alert alert-danger">
+               <p>{{ $message }}</p>
+   </div>
+       @elseif($message = Session::get('fail-bid-terrible'))
+           <div class="alert alert-danger">
+               <p>{{ $message }}</p>
+   </div>
+               
+       
+       @endif  
           @forelse ( $auctionProducts as $product )
             
     
        
           <div class="col-lg-4 col-md-6 d-flex align-items-stretch bid-item">
             <div class="course-item">
-              <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh; margin-top:10px; margin-bottom:5px;"alt="{{ $product->name }}">
+              <img src="{{URL:: asset('/storage/img/productImages/'.$product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh; margin-top:15px; margin-bottom:5px;"alt="{{ $product->name }}">
               <div class="course-content">
                 <div class="d-flex justify-content-between align-items-center mb-3">
-                  <h4>RRP: KES {{$product->rrp}}</h4>
+                  <h4 class="rrp-item">RRP: KES {{$product->rrp}}</h4>
                   <p class="price"><b>kes {{$product->min_bid}}</b></p>
                 </div>
 
-                <h3><a href="#">{{$product->name}}</a></h3>
+                <h3 class="auction-title"><a href="#">{{$product->name}}</a></h3>
                 <p>{!!$product->description!!}</p>
                 <div class="mpesa-desc d-flex">
-                  <h2>Bid using Mpesa</h2>
+                  <h2 class="mpesa-title">Bid using Mpesa</h2>
                   <p>Send just {{$product->min_bid}} to paybill <b>000000</b> with <b> {{$product->tag}}</b> and your amount as account name.</p>
                   <p> For Example: <b> {{$product->tag}}</b> 120 to bid KES 120
                     <p>Grab your phone and get ready to pay kes <b>{{$product->min_bid}}</b></p>
                 </div>
                 <div>
-                  <form class="bid-form" method="POST" action="">
-                    <input class="form-input form-control" type="number" placeholder="enter phonenumber e.g 0712345678"/>
-                    <input class="form-input form-control" type="number" placeholder="enter Bid amount e.g 32"/>
+                  <form class="bid-form" method="POST" action="{{route('store-bid',$product->id)}}" enctype="multipart/form-data" >
+                  @csrf
+                    <input name="phone_number" class="form-input form-control" type="number" placeholder="enter phonenumber e.g 0712345678"/>
+                    <input name="amount" class="form-input form-control" type="number" placeholder="enter Bid amount e.g 32"/>
                     <button type="submit" class="btn-submit btn btn-lg btn-success">Submit</button>
                   </form>
 
@@ -148,6 +174,7 @@
  $date1 = new DateTime($product->end_date);
  $date3=$date1->format("Y-m-d H:i:s.v");
  $date4= 1000 * strtotime($date3);
+
 
 /* $now = new DateTime(); */
 
@@ -161,11 +188,10 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
         @endphp
 
                   <input type="text" value="@php echo $date4
-                    
-                  @endphp" class="form-control d-none " id="end_date" name="end_date"/>
+                      @endphp" class="form-control d-none " id="end_date" name="end_date"/>
                 
                 <div class="count-down">
-                   <p class="countdown-p" id="countdown"> </p>
+                   <p class="countdown-text">This Bid closes <span  class="countdown-p" id="countdown"> </span> </p>
                 </div>
                 </div>
               </div>
@@ -190,7 +216,7 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
  
 
     <!-- ======= Services Section ======= -->
-    <section id="services" class="services section-bg">
+    <section id="winningbids" class="services section-bg">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -205,24 +231,24 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
                 <img src="{{URL:: asset('/storage/img/motor.jpg') }}" class="img-fluid" style=" margin-top:10px; margin-bottom:5px;"alt="{{ $product->name }}">
               </div>
               <div class="box-item col-lg-6 col-xl-6">
-                <h2>Honda Motorbike</h2>
-                <p>Jincheng Motorbike 150cc</p>
+                <h2 class="winning-bid-title">Honda Motorbike</h2>
+                <p class="description">Jincheng Motorbike 150cc</p>
                 <div class="winner-table">
                   <div class="tb-item">
-                    <h6>Bidder</h6>
-                    <p> Brian Murithi</p>
+                    <h6 class="tb-title">Bidder</h6>
+                    <p class="tb-content"> Brian Murithi</p>
                   </div>
                   <div class="tb-item">
-                    <h6>RRP</h6>
-                    <p> KES 100,000</p>
+                    <h6 class="tb-title">RRP</h6>
+                    <p  class="tb-content"> KES 100,000</p>
                   </div>
                   <div class="tb-item">
-                    <h6>Winning Bid</h6>
-                    <p> KES 20</p>
+                    <h6 class="tb-title">Winning Bid</h6>
+                    <p  class="tb-content"> KES 20</p>
                   </div>
                   <div class="tb-item">
-                    <h6>End Time Bid</h6>
-                    <p> Feb. 23, 2022, 0:11</p>
+                    <h6 class="tb-title">End Time Bid</h6>
+                    <p  class="tb-content"> Feb. 23, 2022, 0:11</p>
                   </div>
 
 
@@ -232,6 +258,9 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
               </div>
                </div>
           </div>
+         
+
+
 
         
         </div>
@@ -249,7 +278,7 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
             <p> Go back to home page</p>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
-            <a class="cta-btn align-middle" href="#">Bid now</a>
+            <a class="cta-btn align-middle" href="#products">Bid now</a>
           </div>
         </div>
 
@@ -257,7 +286,7 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
     </section><!-- End Cta Section -->
 
     <!-- ======= Portfolio Section ======= -->
-    <section id="portfolio" class="portfolio">
+    <section id="gallery" class="portfolio">
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
@@ -616,17 +645,17 @@ var x = setInterval(function() {
   var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
   // Display the result in the element with id="demo"
-  document.getElementById("countdown").innerHTML ="This auction closes in" days + "d " + hours + "h "
+  document.getElementById("countdown").innerHTML ="in " + days + "d " + hours + "h "
   + minutes + "m " + seconds + "s ";
 
   // If the count down is finished, write some text
   if (distance < 18000000) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "This auction is almost closing";
+    document.getElementById("countdown").innerHTML = "any minute from now";
   }
   else if (distance < 0) {
     clearInterval(x);
-    document.getElementById("countdown").innerHTML = "The auction closes any minute from now";
+    document.getElementById("countdown").innerHTML = " any minute from now";
   }
 }, 1000);
 </script>

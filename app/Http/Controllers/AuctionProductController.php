@@ -77,6 +77,34 @@ try{
         //
     }
 
+    public function storeBid(Request $request, $id){
+       try{
+        $request->validate([
+            'amount'=>'required',
+            'phone_number'=>'required',
+       
+    ]);
+
+    $bid= new Bid;
+    $bid->amount = $request->amount;
+    $bid->phone_number = $request->phone_number;
+    $bid->product_id = $id;
+
+    $save=$bid->save();
+
+    if($save){
+        return back()->with('success-bid','Bid placed');
+    }
+    else{
+        return back()->with('fail-bid','Bid was not placed successfully');
+    }
+}
+catch(Throwable $th){
+    return back()->with('fail-bid-terrible','Something wrong happened, please try again ');
+}
+    }
+  
+
     /**
      * Display the specified resource.
      *
