@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('home');
+Route::post('/store-bid/{id}', [App\Http\Controllers\AuctionProductController::class, 'storeBid'])->name('store-bid');
 
 
 
