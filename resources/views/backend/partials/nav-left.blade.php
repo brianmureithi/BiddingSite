@@ -21,7 +21,7 @@
             </a>
           </li>
           <li>
-            <a href="components-accordion.html">
+            <a href="{{route('showproducts')}}">
               <i class="bi bi-circle"></i><span>View Products</span>
             </a>
           </li>

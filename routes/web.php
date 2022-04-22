@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('home');
-Route::post('/store-bid/{id}', [App\Http\Controllers\AuctionProductController::class, 'storeBid'])->name('store-bid');
+Route::post('/store-bid/{id}', [App\Http\Controllers\BidController::class, 'create'])->name('store-bid');
 
 
 
@@ -25,6 +25,8 @@ Route::group( ['middleware' => ['auth']
 
     Route::get('/add_product', [App\Http\Controllers\AuctionProductController::class, 'index'])->name('addproduct');
     Route::post('/add_product', [App\Http\Controllers\AuctionProductController::class, 'store'])->name('store.product');
+    Route::get('/show_products', [App\Http\Controllers\AuctionProductController::class, 'showproducts'])->name('showproducts');
+    Route::get('/view_product/{id}', [App\Http\Controllers\AuctionProductController::class, 'show'])->name('viewproduct');
     
     
 
