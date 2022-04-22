@@ -207,6 +207,28 @@ h1, h2, h3, h4, h5, h6 {
   border-color: #d3d3d4;
 }
 
+
+
+.product-desc{
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding:5px;
+}
+.view-item-card{
+  position: relative;
+}
+
+.view-image-card{
+position: relative;
+}
+.btn-edit{
+  position: absolute;
+  right: 15px;
+  bottom: 10px;
+
+}
+
 /* Card */
 .card {
   margin-bottom: 30px;
