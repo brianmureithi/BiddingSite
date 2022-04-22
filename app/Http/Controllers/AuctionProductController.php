@@ -96,8 +96,8 @@ try{
     public function show(AuctionProduct $auctionProduct, $id)
     {
         //
-        $showProductById= AuctionProduct::find($id);
-        return view('backend.pages.ViewProduct', compact('showProductById'));
+        $Product= AuctionProduct::find($id);
+        return view('backend.pages.ViewProduct', compact('Product'));
     }
 
     /**
