@@ -236,7 +236,7 @@ $difference_in_seconds = $date1->format('U') - $now->format('U'); */
                 <div class="winner-table">
                   <div class="tb-item">
                     <h6 class="tb-title">Bidder</h6>
-                    <p class="tb-content"> Brian Murithi</p>
+                    <p class="tb-content"> Brian </p>
                   </div>
                   <div class="tb-item">
                     <h6 class="tb-title">RRP</h6>

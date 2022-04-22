@@ -77,32 +77,14 @@ try{
         //
     }
 
-    public function storeBid(Request $request, $id){
-       try{
-        $request->validate([
-            'amount'=>'required',
-            'phone_number'=>'required',
-       
-    ]);
+    public function showproducts(){
 
-    $bid= new Bid;
-    $bid->amount = $request->amount;
-    $bid->phone_number = $request->phone_number;
-    $bid->product_id = $id;
+        $products= AuctionProduct::paginate('10');
+        return view('backend.pages.showAuctionProducts', compact('products'));
 
-    $save=$bid->save();
+    }
 
-    if($save){
-        return back()->with('success-bid','Bid placed');
-    }
-    else{
-        return back()->with('fail-bid','Bid was not placed successfully');
-    }
-}
-catch(Throwable $th){
-    return back()->with('fail-bid-terrible','Something wrong happened, please try again ');
-}
-    }
+   
   
 
     /**
@@ -111,9 +93,11 @@ catch(Throwable $th){
      * @param  \App\Models\AuctionProduct  $auctionProduct
      * @return \Illuminate\Http\Response
      */
-    public function show(AuctionProduct $auctionProduct)
+    public function show(AuctionProduct $auctionProduct, $id)
     {
         //
+        $showProductById= AuctionProduct::find($id);
+        return view('backend.pages.ViewProduct', compact('showProductById'));
     }
 
     /**
