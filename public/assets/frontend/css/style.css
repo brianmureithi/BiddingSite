@@ -448,7 +448,7 @@ background: #1e52ac !important;
 }
 .btn-submit:hover{
   background: transparent !important;
-  border:1px solid #37517e;
+  border:1px solid #1570a5;
   padding:10px 8px;
   font-size: 22px;
 
@@ -463,15 +463,15 @@ background: #1e52ac !important;
 }
 .countdown-text{
   font-size: 20px;
-  color:rgba(0, 101, 141, 0.966);
+  color:rgba(6, 91, 124, 0.966);
   font-weight: 500;
-  font-family: 'Orbitron', serif;
+  font-family: 'Lato', serif;
 
 }
 .countdown-p{
   font-size: 20px;
-  color:rgb(236, 47, 14);
-  font-family: 'Orbitron', serif;
+  color:rgb(17, 167, 212);
+  font-family: 'Lato', serif;
   font-weight: 500;
 }
 .bid-item{

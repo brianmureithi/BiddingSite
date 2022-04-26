@@ -32,8 +32,11 @@
                   
                 <img src="{{URL:: asset('/storage/img/productImages/'.$Product->image) }}" class="img-fluid" style="min-height:30vh;max-height:30vh; margin-top:15px; margin-bottom:5px;"alt="{{ $Product->name }}">
                </div>
+               <button href="#" type="button" class="btn btn-success btn-sm btn-edit" data-bs-toggle="modal" data-bs-target="#verticalycentered">Change</button>
+                
+               @include('backend.pages.UpdateproductImage')
 
-               <a href="" class="btn btn-primary btn-sm btn-edit">Change</a>
+              
               </div>
             </div>
   
@@ -77,15 +80,16 @@
 
                 </div>
 
-                <a href="" class="btn btn-primary btn-sm btn-edit">Update</a>
+                <button href="#" type="button" class="btn btn-danger btn-sm btn-edits" data-bs-toggle="modal" data-bs-target="#verticalproduct">Update</button>
                 
-               
+                @include('backend.pages.UpdateProductPopup')
               </div>
             </div>
   
           </div>
         </div>
       </section>
+    
   
 
 

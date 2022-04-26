@@ -20,8 +20,8 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Card</h5>
-              <p>This is an examle page with no contrnt</p>
+              <h5 class="card-title"></h5>
+              <p></p>
             </div>
           </div>
 
@@ -31,8 +31,8 @@
 
           <div class="card">
             <div class="card-body">
-              <h5 class="card-title">Card 2</h5>
-              <p>This is an examle page with no contrnt. </p>
+              <h5 class="card-title"></h5>
+              <p> </p>
             </div>
           </div>
 
