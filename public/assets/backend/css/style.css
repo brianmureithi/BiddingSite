@@ -206,6 +206,14 @@ h1, h2, h3, h4, h5, h6 {
   background-color: #d3d3d4;
   border-color: #d3d3d4;
 }
+@media screen and ( min-width: 850px ) and ( max-height: 768px )
+{
+   .video-contain{
+     margin-top:110px;  
+    }
+}
+
+
 
 
 
@@ -226,6 +234,12 @@ position: relative;
   position: absolute;
   right: 15px;
   bottom: 10px;
+
+}
+.btn-edits{
+  position: absolute;
+  right: 10px;
+  bottom: 7px;
 
 }
 
