@@ -29,7 +29,7 @@
   <link href="{{ asset('assets/frontend/vendor/glightbox/css/glightbox.min.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/frontend/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
   <link href="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.css')}}" rel="stylesheet">
-
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
   <!-- Template Main CSS File -->
   <link href="{{ asset('assets/frontend/css/style.css')}}" rel="stylesheet">
 
@@ -64,7 +64,8 @@
   <script src="{{ asset('assets/frontend/vendor/swiper/swiper-bundle.min.js')}}"></script>
   <script src="{{ asset('assets/frontend/vendor/waypoints/noframework.waypoints.js')}}"></script>
   <script src="{{ asset('assets/frontend/vendor/php-email-form/validate.js')}}"></script>
-
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>  
+  <script src="{{ asset('js/app.js') }}"></script>
   <!-- Template Main JS File -->
   <script src="{{ asset('assets/frontend/js/main.js')}}"></script>
 
