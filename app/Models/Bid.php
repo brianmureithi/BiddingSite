@@ -16,6 +16,7 @@ class Bid extends Model
     ];
 
     public function auctionProduct(){
-        return $this->belongsTo(AuctionProduct::class);
+        return $this->belongsTo(AuctionProduct::class, 'product_id', 'id');
+
     }
 }

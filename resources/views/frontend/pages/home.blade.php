@@ -226,7 +226,7 @@
 
                                      </div>
 
-                                     <div class="clock{{ $product->id }}"></div>
+                                    <p style="font-family: 'Ubuntu', serif; color:#FF6347">This Auction ends in  <span class="clock{{ $product->id }}"></span><p>
                                      @php
                                              
                                      $date1 = new DateTime($product->end_date);
