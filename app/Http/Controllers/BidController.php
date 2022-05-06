@@ -15,6 +15,11 @@ class BidController extends Controller
     public function index()
     {
         //
+        $showbids= Bid::with('auctionProduct')->paginate(6);
+      
+
+        return view('backend.pages.viewBids', compact('showbids'));
+   
     }
 
     /**

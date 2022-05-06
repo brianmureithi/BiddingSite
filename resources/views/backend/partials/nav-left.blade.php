@@ -35,7 +35,7 @@
         </a>
         <ul id="forms-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="l">
+            <a href="{{route('view.bids')}}">
               <i class="bi bi-circle"></i><span>View Bids made</span>
             </a>
           </li>
