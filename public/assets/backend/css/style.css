@@ -236,6 +236,13 @@ position: relative;
   bottom: 10px;
 
 }
+.leading-5{
+  padding:8px;
+  margin-top:3px;
+}
+.w-5{
+  display:none;
+}
 .btn-edits{
   position: absolute;
   right: 10px;

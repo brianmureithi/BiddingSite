@@ -90,6 +90,7 @@ class MPESAController extends Controller
         $timestamp = date('YmdHis');
         $password = env('MPESA_STK_SHORTCODE').env('MPESA_PASSKEY').$timestamp;
         $password = base64_encode($password);
+   
         $curl_post_data = array(
           
             
@@ -100,10 +101,12 @@ class MPESAController extends Controller
             'Amount' =>  $amount,
             'PartyA' => $phone,
             'PartyB' => env('MPESA_STK_SHORTCODE'),
-            'PhoneNumber' => str_replace("0", "254",$phone),
+            
+            'PhoneNumber' =>  substr_replace($phone,"254",0,1),
             'CallBackURL' => env('MPESA_TEST_URL').'/stkpushcallback',
             'AccountReference' => $account,
             'TransactionDesc' => $account,
+      
           );
 
         $url = '/stkpush/v1/processrequest';
