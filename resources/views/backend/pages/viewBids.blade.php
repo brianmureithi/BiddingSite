@@ -54,12 +54,14 @@
                   {{--   @include('admin.dashboard.editPostPopup') --}}
                 </td>
               </tr>
+          
               @empty
               <div class="alert alert-danger">
                   Seems like there are no bids at the moment
               </div>
                     
                 @endforelse
+              {{$showbids->links()}}
              
             </tbody>
           </table>

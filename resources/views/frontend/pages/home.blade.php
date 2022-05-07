@@ -55,7 +55,7 @@
                          If a fridge is on offer, and you bid is <span style="color:#242333">74ksh</span>, enter <span
                              style="color:#242333">74</span></h2>
 
-                     <h3>Once the bid closes, and yours is the lowest, your get the fridge at 74 kshs</h3>
+                     <h3>Once the bid closes, and yours is the lowest and unique, your get the fridge at 74 kshs</h3>
                      <div class="d-flex justify-content-center justify-content-lg-start">
                          <a href="#products" class="btn-get-started scrollto" style="">Start Bidding</a>
                          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i
@@ -196,17 +196,20 @@
                                                                   swal({  
                                                                               title: " Almost there!",  
                                                                               text: "Check your phone and get ready to pay {{$product->min_bid}}",  
-                                                                              icon: "error",  
+                                                                              icon: "success",  
                                                                               button: "Okay",  
                                                                             });  
-                                                                  /*  if(response.data.ResponseCode == 0){
-                                                                      setTimeout(function(){
+                                                                          
+                                                                           
+                                                                  /*   if(response.data.ResponseCode == 0){
+                                                                       setTimeout(function(){
                                                                       document.getElementById('payment-form').submit(); 
                                                                       }, 2000)
+                                                                     
                                                                     }
                                                                     else{
                                                                     /*   window.location.replace("/"); 
-                                                                    }  */
+                                                                    }   */
 
                                                               } else {
 
@@ -284,7 +287,7 @@
                                        
                                 
 
-                                             end_date=document.getElementById("end_date_bid-{{$product->id}}").value;
+                                              /*   end_date=document.getElementById("end_date_bid-{{$product->id}}").value;
 
                                               
                                   
@@ -293,7 +296,7 @@
                                
                                            
                                         
-                                             // Update the count down every 1 second
+                                          // Update the count down every 1 second
                                              var x = setInterval(function() {
                                               
 
@@ -316,12 +319,12 @@
                                                     document.getElementById().innerHTML = days + "d " + hours + "h "
                                                 + minutes + "m " + seconds + "s ";
                                                     
-                                                });
+                                                }); */
                                               
 
                                                  
                                              
-
+/* 
                                                  // If the count down is finished, write some text
                                                  if (distance < 1800000) {
                                                      clearInterval(x);
@@ -336,7 +339,7 @@
                                                  } 
                                            
                                              }, 1000);
-                                            
+                                             */
                                            
                                             
 
@@ -435,6 +438,7 @@
 
              </div>
          </section><!-- End Cta Section -->
+   
 
          <!-- ======= Portfolio Section ======= -->
          <section id="gallery" class="portfolio">
@@ -599,6 +603,8 @@
              class="bi bi-arrow-up-short "></i></a>
  @endsection
  <script type="text/javascript">
+ let  phone= 0708944949;
+
     function startTimer(duration, display) {
    /*  var start = Date.now(),
         diff,
