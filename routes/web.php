@@ -44,8 +44,10 @@ Route::group( ['middleware' => ['auth']
     Route::get('/view-bids', [App\Http\Controllers\BidController::class, 'index'])->name('view.bids');
     Route::get('/addfaqs', [App\Http\Controllers\FAQModelController::class, 'create'])->name('add.faq');
     Route::get('/addimages', [App\Http\Controllers\GalleryController::class, 'create'])->name('add.images');
+    Route::get('/viewimages', [App\Http\Controllers\GalleryController::class, 'show'])->name('show.images');
     Route::post('/storefaqs', [App\Http\Controllers\FAQModelController::class, 'store'])->name('store.faqs');
     Route::post('/storeimages', [App\Http\Controllers\GalleryController::class, 'store'])->name('store.images');
+    Route::delete('/delete-image/{id}', [App\Http\Controllers\GalleryController::class, 'delete'])->name('destroy-image-route');
     
     
 

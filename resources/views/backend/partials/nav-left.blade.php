@@ -92,7 +92,7 @@
             </a>
           </li>
           <li>
-            <a href="">
+            <a href="{{route('show.images')}}">
               <i class="bi bi-circle"></i><span>View Gallery </span>
             </a>
           </li>

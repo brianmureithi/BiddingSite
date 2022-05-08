@@ -603,30 +603,23 @@
 
                  <div class="faq-list">
                      <ul>
-                         <li data-aos="fade-up" data-aos-delay="100">
-                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                 class="collapse" data-bs-target="#faq-list-1">Question 1 <i
-                                     class="bx bx-chevron-down icon-show"></i><i
-                                     class="bx bx-chevron-up icon-close"></i></a>
-                             <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
-                                 <p>
-                                     Answer 1
-                                 </p>
-                             </div>
-                         </li>
-
-                         <li data-aos="fade-up" data-aos-delay="200">
-                             <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
-                                 data-bs-target="#faq-list-2" class="collapsed">Question 2 <i
-                                     class="bx bx-chevron-down icon-show"></i><i
-                                     class="bx bx-chevron-up icon-close"></i></a>
-                             <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
-                                 <p>
-                                     Answer 2
-                                 </p>
-                             </div>
-                         </li>
-
+                         @forelse ($faqs as $faq)
+                         <li data-aos="fade-up" data-aos-delay="{{$faq->id}}00">
+                            <i class="bx bx-help-circle icon-help"></i> <a data-bs-toggle="collapse"
+                                class="collapse" data-bs-target="#faq-list-{{$faq->id}}">{{$faq->question}} <i
+                                    class="bx bx-chevron-down icon-show"></i><i
+                                    class="bx bx-chevron-up icon-close"></i></a>
+                            <div id="faq-list-{{$faq->id}}" class="collapse show" data-bs-parent=".faq-list">
+                                <p>
+                                    {{$faq->answer}}
+                                </p>
+                            </div>
+                        </li>
+                             
+                         @empty
+                             
+                         @endforelse
+                             
 
 
                      </ul>
