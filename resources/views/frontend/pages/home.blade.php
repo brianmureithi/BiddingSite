@@ -247,10 +247,12 @@
                                                         document.getElementById("spin-{{$product->id}}").style.display = "none";
                                                                
                                                                swal({  
-                                                                           title: " Almost there!",  
+                                                                           title: " Almost there!", 
+                                                                           heightAuto: false, 
                                                                            text: "Check your phone and get ready to pay {{$product->min_bid}}",  
                                                                            type: "success",  
-                                                                           button: "Okay",  
+                                                                           button: "Okay", 
+                                                                           
                                                                          });
 
                                                       }
@@ -260,7 +262,7 @@
                                                                            title: " Sigh!",  
                                                                            text: "Seems like something wrong happened, please try again with valid phone number",  
                                                                            type: "error",  
-                                                                           button: "Okay",  
+                                                                        heightAuto: false,                                                                            button: "Okay",  
                                                                          });
                                                                         }
                                                     
@@ -574,11 +576,62 @@
                      <h2>Gallery</h2>
 
                  </div>
+                 <div class="gallery-wrapper">
 
-                 <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
-                     <li data-filter="*" class="filter-active">All</li>
+                 <div class="slider">
+
+                    <div class="slides">
+                      
+                            
                      
-                 </ul>
+           
+
+                        <input type="radio" name="radio-btn" id="radio1">
+                        <input type="radio" name="radio-btn" id="radio2">
+                        <input type="radio" name="radio-btn" id="radio3">
+                        <input type="radio" name="radio-btn" id="radio4">
+                        {{-- Radio buttons end --}}
+                        <div class="slide first">
+                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+
+                        </div>
+                        <div class="slide ">
+                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+
+                        </div>
+                        <div class="slide ">
+                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+
+                        </div>
+                       
+                        <div class="slide ">
+                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+
+                        </div>
+                       
+                        {{-- Automatic navigation --}}
+                        <div class="navigation-auto">
+                            <div class="auto-btn1"></div>
+                            <div class="auto-btn2"></div>
+                            <div class="auto-btn3"></div>
+                            <div class="auto-btn4"></div>
+
+                        </div>
+
+
+                    </div>
+                    <div class="navigation-manual">
+                        <label for="radio1" class="manual-btn"></label>
+                        <label for="radio2" class="manual-btn"></label>
+                        <label for="radio3" class="manual-btn"></label>
+                        <label for="radio4" class="manual-btn"></label>
+
+                    </div>
+
+                 </div>
+                 </div>
+
+               
 
                  <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
 
@@ -722,7 +775,18 @@
              class="bi bi-arrow-up-short "></i></a>
  @endsection
  <script type="text/javascript">
- let  phone= 0708944949;
+
+
+var counter = 1;
+setInterval(function(){
+    document.getElementById('radio' + counter).checked = true;
+    counter++;
+    if(counter > 4){
+        counter=1
+    }
+},4000);
+
+
 
     function startTimer(duration, display) {
    /*  var start = Date.now(),
