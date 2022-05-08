@@ -52,11 +52,11 @@
                      <h1>BID LOW, AND WIN BIG!</h1>
                      <h2 style="">Deposit a minimum of 20ksh via Mpesa to paybill <span
                              style="color:#242333"><b>00000</b></span>, and your unique low bid on an item.
-                         If a fridge is on offer, and you bid is <span style="color:#242333">74ksh</span>, enter <span
-                             style="color:#242333">74</span></h2>
+                         If a T.v is on offer, and you bid is <span style="color:#242333">81ksh</span>, enter <span
+                             style="color:#242333">81</span></h2>
 
-                     <h3>Once the bid closes, and yours is the lowest and unique, your get the fridge at 74 kshs</h3>
-                     <div class="d-flex justify-content-center justify-content-lg-start">
+                     <h3>Once the bid closes, and yours is the lowest and unique, your get the Tv at 74 kshs</h3>
+                     <div class="d-flex justify-content-center justify-content-lg-start hero-buttons">
                          <a href="#products" class="btn-get-started scrollto" style="">Start Bidding</a>
                          <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i
                                  class="bi bi-play-circle"></i><span>Watch Video</span></a>
@@ -73,7 +73,7 @@
      <main id="main">
 
          <!-- ======= Clients Section ======= -->
-         <section id="clients" class="clients section-bg">
+        {{--  <section id="clients" class="clients section-bg">
              <div class="container">
 
                  <div class="row" data-aos="zoom-in">
@@ -105,7 +105,7 @@
                  </div>
 
              </div>
-         </section><!-- End Cliens Section -->
+         </section> --}}<!-- End Cliens Section -->
 
          <!-- ======= About Us Section ======= -->
 
