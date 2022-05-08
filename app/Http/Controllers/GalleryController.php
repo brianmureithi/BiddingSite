@@ -37,6 +37,34 @@ class GalleryController extends Controller
     public function store(Request $request)
     {
         //
+        try{
+            $request->validate
+        ([
+           
+            'image'=>'required',
+            
+        ]);
+        $image =$request->image;
+        $filename=time().'.'.$image->getClientOriginalExtension();
+        $request->image->move('storage/img/Gallery',$filename);
+        Gallery::create([
+         
+          'image'=>$filename,
+         
+         
+          
+      ]);
+      return back()->with('success','Image added to gallery successfully');
+    
+    }
+
+      catch(Exception $e){
+        return back()->with('fail','Image addition failed');
+
+      }
+ 
+ 
+        //
     }
 
     /**
