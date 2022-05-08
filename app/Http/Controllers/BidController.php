@@ -27,26 +27,34 @@ class BidController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create(Request $request, $id){
+    public function create(Request $request){
         try{
-         $request->validate([
-             'amount'=>'required',
-             'phone_number'=>'required',
+            $request->validate
+            ([
+                'bid_amount'=>'required',
+            
+                'phone' => 'required|regex:/(07)[0-9]{8}/'
+           
+               
+               
+            ]);
         
-     ]);
  
      $bid= new Bid;
-     $bid->amount = $request->amount;
-     $bid->phone_number = $request->phone_number;
-     $bid->product_id = $id;
+     $bid->amount = $request-> bid_amount;
+     $bid->phone_number = $request->phone;
+     $bid->product_id = $request->product_id;
  
      $save=$bid->save();
  
      if($save){
-         return back()->with('success-bid','Bid placed');
+      return response(['status' => 200 ]);
+        
      }
      else{
-         return back()->with('fail-bid','Bid was not placed successfully');
+        return response(['status' => 500 ]);
+        
+        
      }
  }
  catch(Throwable $th){

@@ -13,7 +13,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('home');
-Route::post('/store-bid/{id}', [App\Http\Controllers\BidController::class, 'create'])->name('store-bid');
+Route::post('/store-bid', [App\Http\Controllers\BidController::class, 'create'])->name('store-bid');
 Route::get('/view-bids', [App\Http\Controllers\BidController::class, 'index'])->name('view.bids');
 Route::post('get-token', [App\Http\Controllers\MPESAController::class, 'getAccessToken']);
 Route::post('register-urls', [App\Http\Controllers\MPESAController::class, 'registerURLS']);

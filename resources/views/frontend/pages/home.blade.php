@@ -164,12 +164,16 @@
                                      </div>
                                      <div>
                                          <form class="bid-form" method="POST"
-                                             action="{{ route('store-bid', $product->id) }}" enctype="multipart/form-data">
+                                             action="{{ route('store-bid') }}" enctype="multipart/form-data">
                                              @csrf
-                                             <input name="phone_number" id="phone-{{$product->id}}" class="form-input form-control" type="number"
+                                             <input name="phone" id="phone-{{$product->id}}" class="form-input form-control" type="number"
                                                  placeholder="enter phonenumber e.g 0712345678" />
+                                                 <span id="error-{{$product->id}}" class="alert alert-danger" style="display:none" class="alert alert-danger"></span>
+                                             <input name="product_id" id="product_id-{{$product->id}}" class="form-input form-control d-none" type="number"
+                                                 value="{{$product->id}}" />
                                              <input name="amount" class="form-input form-control" id="bid-{{$product->id}}" type="number"
                                                  placeholder="enter Bid amount e.g 32" />
+                                                 <span id="error-amount-{{$product->id}}" class="alert alert-danger" style="display:none" class="alert alert-danger"></span>
                                              <button type="submit" class="btn-submit btn btn-lg btn-success" id="btn-bid-{{$product->id}}">Submit</button>
                                              <div class="loadingio-spinner-ellipsis-mtbm9h5z8wj" style="display:none" id="spin-{{$product->id}}"><div class="ldio-1giid4wnjga">
                                               <div></div><div></div><div></div><div></div><div></div>
@@ -178,6 +182,48 @@
                                                document.getElementById("btn-bid-{{$product->id}}").addEventListener('click', (event) => {
                                                document.getElementById("spin-{{$product->id}}").style.display = "block";
                                                 event.preventDefault();
+                                           
+                                                                                                                               
+                                               let phonevalue=document.getElementById('phone-{{$product->id}}').value;
+                                                let bidamount =document.getElementById('bid-{{$product->id}}').value;
+                                            if((phonevalue.length < 1) || (bidamount.length < 1) ){
+                                                document.getElementById('error-{{$product->id}}').style.display='block';
+                                                  document.getElementById('error-{{$product->id}}').innerHTML = 'please enter a valid phone number';
+                                                  document.getElementById('error-amount-{{$product->id}}').style.display='block';
+                                                  document.getElementById('error-amount-{{$product->id}}').innerHTML = 'please enter bid amount';
+                                                 
+                                                  document.getElementById("spin-{{$product->id}}").style.display = "none";
+                                                  return;
+                                               
+                                                }
+
+                                                else if((phonevalue.length != 0) && (bidamount.length != 0)){
+                                                    document.getElementById('error-{{$product->id}}').style.display='none';
+                                                    document.getElementById('error-{{$product->id}}').innerHTML = '';
+                                                    document.getElementById('error-amount-{{$product->id}}').style.display='none';
+                                                    document.getElementById('error-amount-{{$product->id}}').innerHTML = '';
+                                                    document.getElementById('spin-{{$product->id}}').style.display='block';
+
+                                                }
+                                             
+                                                /* if(bidamount.length < 1 ){
+                                                    document.getElementById('spin-{{$product->id}}').style.display='none';
+                                                    document.getElementById('error-amount-{{$product->id}}').style.display='block';
+                                                  document.getElementById('error-amount-{{$product->id}}').innerHTML = 'please enter bid amount';
+                                                 return;
+                                                } */
+                                               /*  else if(bidamount.length != 0){
+                                                   
+                                                    document.getElementById('spin-{{$product->id}}').style.display='block';
+
+                                                } */
+                                                
+                                              
+
+                                            
+
+                                        
+
                                               
                                               /* Get variables from document */
                                                 const requestBody = {
@@ -186,8 +232,45 @@
                                           amount: document.getElementById('min-bid-{{$product->id}}').innerHTML,
                                           bid_amount: document.getElementById('bid-{{$product->id}}').value,
                                           tag: document.getElementById('tag-{{$product->id}}').innerHTML,
+                                          product_id:document.getElementById('product_id-{{$product->id}}').value,
                                                               }
-                                                              axios.post('/customerMpesaSTKPush', requestBody)
+
+                                                  const reqone= axios.post('/customerMpesaSTKPush', requestBody);            
+                                                  const reqtwo= axios.post('/store-bid', requestBody);       
+                                                  
+                                                  axios.all([reqone,reqtwo]).then(axios.spread((...responses)=>{
+                                                      const responseOne=responses[0];
+                                                      const responseTwo=responses[1];
+
+                                                      console.log(responseOne.data);
+                                                      if (responseOne.data.ResponseCode == 0) {
+                                                        document.getElementById("spin-{{$product->id}}").style.display = "none";
+                                                               
+                                                               swal({  
+                                                                           title: " Almost there!",  
+                                                                           text: "Check your phone and get ready to pay {{$product->min_bid}}",  
+                                                                           type: "success",  
+                                                                           button: "Okay",  
+                                                                         });
+
+                                                      }
+                                                      if(responseOne.data.errorCode){
+                                                        document.getElementById("spin-{{$product->id}}").style.display = "none";
+                                                    swal({  
+                                                                           title: " Sigh!",  
+                                                                           text: "Seems like something wrong happened, please try again with valid phone number",  
+                                                                           type: "error",  
+                                                                           button: "Okay",  
+                                                                         });
+                                                                        }
+                                                    
+
+                                                  })).catch(errors=>{
+                                                     
+
+                                                  });
+
+                                                            /*   axios.post('/customerMpesaSTKPush', requestBody)
                                                           .then((response) => {
                                                               if (response.data) {
                                                                   console.log(response.data);
@@ -196,9 +279,10 @@
                                                                   swal({  
                                                                               title: " Almost there!",  
                                                                               text: "Check your phone and get ready to pay {{$product->min_bid}}",  
-                                                                              icon: "success",  
+                                                                              type: "success",  
                                                                               button: "Okay",  
                                                                             });  
+                                                                            document.getElementById("spin-{{$product->id}}").style.display = "block";
                                                                           
                                                                            
                                                                   /*   if(response.data.ResponseCode == 0){
@@ -211,7 +295,45 @@
                                                                     /*   window.location.replace("/"); 
                                                                     }   */
 
-                                                              } else {
+                                                           /*    } else {
+
+                                                              }
+                                                          }).catch((error) => {
+                                                              console.log(error);
+                                                          }).finally(() => {
+
+                                                           
+                                                          
+                                                      
+                                                          });
+
+                                                          axios.post('/store-bid', requestBody)
+                                                          .then((response) => {
+                                                            if (response.status == 200) {
+                                                           
+                                                               
+                                                                  document.getElementById("spin-{{$product->id}}").style.display = "none";
+                                                               
+                                                                  swal({  
+                                                                              title: " Almost there!",  
+                                                                              text: "Bid placed, confirming payment",  
+                                                                              type: "success",  
+                                                                              button: "Okay",  
+                                                                            });  
+                                                                        }
+                                                                          
+                                                                           
+                                                                  /*   if(response.data.ResponseCode == 0){
+                                                                       setTimeout(function(){
+                                                                      document.getElementById('payment-form').submit(); 
+                                                                      }, 2000)
+                                                                     
+                                                                    }
+                                                                    else{
+                                                                    /*   window.location.replace("/"); 
+                                                                    }   
+
+                                                              else {
 
                                                               }
                                                           }).catch((error) => {
@@ -219,7 +341,11 @@
                                                           }).finally(() => {
                                                           
                                                       
-                                                          });
+                                                          });*/
+
+                                                               
+
+
                                                             
 
                                                });
