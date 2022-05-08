@@ -472,6 +472,12 @@ background: #0597b4 !important;
   font-family: 'Lato', serif;
 
 }
+@media(max-width:630px){
+.hero-buttons{
+  margin-bottom: 45px;
+
+}
+}
 .countdown-p{
   font-size: 20px;
   color:rgb(17, 167, 212);
@@ -843,7 +849,7 @@ color: #FF6347;
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
-    color: #ffd000;
+    color: #242424;
   }
   #hero .animated {
     animation: up-down 2s ease-in-out infinite alternate-reverse both;

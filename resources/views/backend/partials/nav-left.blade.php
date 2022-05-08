@@ -68,7 +68,7 @@
         </a>
         <ul id="charts-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="charts-chartjs.html">
+            <a href="{{route('add.faq')}}">
               <i class="bi bi-circle"></i><span>Add FAQ</span>
             </a>
           </li>
@@ -87,7 +87,7 @@
         </a>
         <ul id="icons-nav" class="nav-content collapse " data-bs-parent="#sidebar-nav">
           <li>
-            <a href="">
+            <a href="{{route('add.images')}}">
               <i class="bi bi-circle"></i><span>Add Images</span>
             </a>
           </li>

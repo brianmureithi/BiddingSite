@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 */
 Route::get('/', [App\Http\Controllers\Controller::class, 'index'])->name('home');
 Route::post('/store-bid', [App\Http\Controllers\BidController::class, 'create'])->name('store-bid');
-Route::get('/view-bids', [App\Http\Controllers\BidController::class, 'index'])->name('view.bids');
+
 Route::post('get-token', [App\Http\Controllers\MPESAController::class, 'getAccessToken']);
 Route::post('register-urls', [App\Http\Controllers\MPESAController::class, 'registerURLS']);
 Route::post('api/validation', [App\Http\Controllers\MPESAResponsesController::class, 'validation']);
@@ -28,6 +28,9 @@ Route::post('api/b2ccallback', [App\Http\Controllers\MPESAResponsesController::c
 Route::post('api/b2ctimeout', [App\Http\Controllers\MPESAResponsesController::class, 'b2ctimeout']);
 
 
+
+
+/* Backend routes */
 Route::group( ['middleware' => ['auth']
                 ], function () { 
     Route::get('dashboard', function () {
@@ -38,6 +41,9 @@ Route::group( ['middleware' => ['auth']
     Route::post('/add_product', [App\Http\Controllers\AuctionProductController::class, 'store'])->name('store.product');
     Route::get('/show_products', [App\Http\Controllers\AuctionProductController::class, 'showproducts'])->name('showproducts');
     Route::get('/view_product/{id}', [App\Http\Controllers\AuctionProductController::class, 'show'])->name('viewproduct');
+    Route::get('/view-bids', [App\Http\Controllers\BidController::class, 'index'])->name('view.bids');
+    Route::get('/addfaqs', [App\Http\Controllers\FAQModelController::class, 'create'])->name('add.faq');
+    Route::get('/addimages', [App\Http\Controllers\GalleryController::class, 'create'])->name('add.images');
     
     
 
