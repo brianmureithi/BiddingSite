@@ -36,6 +36,38 @@ class FAQModelController extends Controller
      */
     public function store(Request $request)
     {
+        try{
+            $request->validate
+            ([
+                'question'=>'required',
+            
+                'answer' => 'required'
+           
+               
+               
+            ]);
+        
+ 
+     $faq= new FAQModel;
+     $faq->question = $request-> question;
+     $faq->answer = $request->answer;
+ 
+ 
+     $save=$faq->save();
+ 
+     if($save){
+      return back()->with('success','FAQ added successfully');
+        
+     }
+     else{
+        return back()->with('fail','Product addition, please try again');
+        
+        
+     }
+ }
+ catch(Throwable $th){
+     return back()->with('fail-faq-terrible','Something wrong happened, please try again ');
+ }
         //
     }
 

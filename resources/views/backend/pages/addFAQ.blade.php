@@ -17,17 +17,42 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </div>
+                    @endif
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                </div>
+                @elseif($message = Session::get('fail'))
+                    <div class="alert alert-danger">
+                        <p>{{ $message }}</p>
+                  </div>  
+                        
+                  @elseif($message = Session::get('fail-faq-terrible '))
+                  <div class="alert alert-danger">
+                      <p>{{ $message }}</p>
+                </div>       
+                @endif 
+
               <h5 class="card-title">FAQ</h5>
 
               <!-- Vertical Form -->
-              <form class="row g-3">
+              <form action ="{{route('store.faqs')}}" method="POST" class="row g-3">
+                @csrf
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Enter question</label>
-                  <input type="text" class="form-control" id="inputNanme4">
+                  <input type="text" name="question" class="form-control" id="inputNanme4">
                 </div>
                 <div class="col-12">
                   <label for="inputEmail4" class="form-label">Answer</label>
-                  <input type="text" class="form-control" id="inputEmail4">
+                  <input type="text" name="answer" class="form-control" id="inputEmail4">
                 </div>
               
                 <div class="text-center">

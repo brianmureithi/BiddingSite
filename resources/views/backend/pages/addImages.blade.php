@@ -17,13 +17,34 @@
     <section class="section">
         <div class="card">
             <div class="card-body">
+                @if($errors->any())
+                <div class="alert alert-danger">
+                    <p><strong>Opps Something went wrong</strong></p>
+                    <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                    </div>
+                    @endif
+                @if ($message = Session::get('success'))
+                <div class="alert alert-success">
+                            <p>{{ $message }}</p>
+                </div>
+                @elseif($message = Session::get('fail'))
+                    <div class="alert alert-danger">
+                        <p>{{ $message }}</p>
+                  </div>  
+                        
+                
+                @endif 
               <h5 class="card-title">Image</h5>
 
               <!-- Vertical Form -->
-              <form class="row g-3">
+            <form action="{{route('store.images')}}" method="post" class="row g-3" enctype="multipart/form-data">
+                  @csrf
                 <div class="col-12">
                   <label for="inputNanme4" class="form-label">Select file</label>
-                  <input type="file" class="form-control" id="inputNanme4">
+                  <input type="file" name="image" class="form-control" id="inputNanme4">
                 </div>
                
                 <div class="text-center">
