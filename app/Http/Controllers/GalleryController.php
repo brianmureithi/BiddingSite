@@ -73,9 +73,11 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function show(Gallery $gallery)
+    public function show()
     {
         //
+        $images= Gallery::all();
+        return view('backend.pages.viewImages', compact('images'));
     }
 
     /**
@@ -107,8 +109,14 @@ class GalleryController extends Controller
      * @param  \App\Models\Gallery  $gallery
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Gallery $gallery)
+    public function delete(Gallery $gallery, $id)
     {
+        $findimage = Gallery::find($id);
+        $findimage->delete();
+        
+
+       
+        return back()->with('success','Image Deleted successfuly');
         //
     }
 }
