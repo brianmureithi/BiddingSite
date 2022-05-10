@@ -230,6 +230,12 @@ h1, h2, h3, h4, h5, h6 {
 .view-image-card{
 position: relative;
 }
+@media(max-width:992){
+  .col-lg-4 {
+    flex: 0 0 auto;
+    width: 32% !important;
+  }
+}
 .gallery-btn{
   display: flex;
   flex-direction: column;
