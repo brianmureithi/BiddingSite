@@ -31,9 +31,10 @@ Route::post('api/b2ctimeout', [App\Http\Controllers\MPESAResponsesController::cl
 
 
 /* Backend routes */
+Auth::routes();
 Route::group( ['middleware' => ['auth']
                 ], function () { 
-    Route::get('dashboard', function () {
+    Route::get('/dashboard', function () {
         return view('backend.pages.dashboard');
     })->name('dashboard');
 
@@ -55,6 +56,6 @@ Route::group( ['middleware' => ['auth']
 });
 
 
-Auth::routes();
+
 
 

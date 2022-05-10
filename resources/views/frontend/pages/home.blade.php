@@ -34,7 +34,7 @@
                          </ul>
                      </li>
             
-                     <li><a class="getstarted scrollto" href="#products">Start Bidding</a></li>
+                     <li><a class="getstarted scrollto" href="#products">Bid Now</a></li>
                  </ul>
                  <i class="bi bi-list mobile-nav-toggle"></i>
              </nav><!-- .navbar -->
@@ -577,9 +577,12 @@
                      <h2>Gallery</h2>
 
                  </div>
+       
                  <div class="gallery-wrapper"  data-aos="fade-up" data-aos-delay="200">
 
                  <div class="slider">
+                    @if (count($images) > 0 ) 
+                 
 
                     <div class="slides">
                       
@@ -587,50 +590,48 @@
                      
            
 
-                        <input type="radio" name="radio-btn" id="radio1">
-                        <input type="radio" name="radio-btn" id="radio2">
-                        <input type="radio" name="radio-btn" id="radio3">
-                        <input type="radio" name="radio-btn" id="radio4">
+                        <input type="radio" name="radio-btn" id="radio{{$images[0]->id}}">
+                        <input type="radio" name="radio-btn" id="radio{{$images[1]->id}}">
+                        <input type="radio" name="radio-btn" id="radio{{$images[2]->id}}">
+                 
                         {{-- Radio buttons end --}}
                         <div class="slide first">
-                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+                            <img src="{{URL::asset('/storage/img/Gallery/'.$images[0]->image)}}" alt="">
 
                         </div>
                         <div class="slide ">
-                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+                            <img src="{{URL::asset('/storage/img/Gallery/'.$images[1]->image)}}" alt="">
 
                         </div>
                         <div class="slide ">
-                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
+                            <img src="{{URL::asset('/storage/img/Gallery/'.$images[2]->image)}}" alt="">
 
                         </div>
                        
-                        <div class="slide ">
-                            <img src="{{ asset('assets/frontend/img/skills.png') }}" alt="">
-
-                        </div>
+                       
                        
                         {{-- Automatic navigation --}}
                         <div class="navigation-auto">
-                            <div class="auto-btn1"></div>
-                            <div class="auto-btn2"></div>
-                            <div class="auto-btn3"></div>
-                            <div class="auto-btn4"></div>
+                            <div class="auto-btn{{$images[0]->id}}"></div>
+                            <div class="auto-btn{{$images[1]->id}}"></div>
+                            <div class="auto-btn{{$images[2]->id}}"></div>
+                          
 
                         </div>
 
 
                     </div>
                     <div class="navigation-manual">
-                        <label for="radio1" class="manual-btn"></label>
-                        <label for="radio2" class="manual-btn"></label>
-                        <label for="radio3" class="manual-btn"></label>
-                        <label for="radio4" class="manual-btn"></label>
+                        <label for="radio{{$images[0]->id}}" class="manual-btn"></label>
+                        <label for="radio{{$images[1]->id}}" class="manual-btn"></label>
+                        <label for="radio{{$images[2]->id}}" class="manual-btn"></label>
+                   
 
                     </div>
 
                  </div>
                  </div>
+                 @endif
 
                
 
