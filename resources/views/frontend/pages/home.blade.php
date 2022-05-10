@@ -4,7 +4,7 @@
      <header id="header" class="fixed-top ">
          <div class="container d-flex align-items-center">
 
-             <h1 class="logo me-auto"><a href="index.html">BIDIKA</a></h1>
+             <h1 class="logo me-auto"><a href="{{route('home')}}">BIDIKA</a></h1>
              <!-- Uncomment below if you prefer to use an image logo -->
              <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
 
@@ -168,12 +168,12 @@
                                              @csrf
                                              <input name="phone" id="phone-{{$product->id}}" class="form-input form-control" type="number"
                                                  placeholder="enter phonenumber e.g 0712345678" />
-                                                 <span id="error-{{$product->id}}" class="alert alert-danger" style="display:none" class="alert alert-danger"></span>
+                                                 <span id="error-{{$product->id}}"  style="display:none" class="alert alert-warning"></span>
                                              <input name="product_id" id="product_id-{{$product->id}}" class="form-input form-control d-none" type="number"
                                                  value="{{$product->id}}" />
                                              <input name="amount" class="form-input form-control" id="bid-{{$product->id}}" type="number"
                                                  placeholder="enter Bid amount e.g 32" />
-                                                 <span id="error-amount-{{$product->id}}" class="alert alert-danger" style="display:none" class="alert alert-danger"></span>
+                                                 <span id="error-amount-{{$product->id}}"  style="display:none" class="alert alert-warning"></span>
                                              <button type="submit" class="btn-submit btn btn-lg btn-success" id="btn-bid-{{$product->id}}">Submit</button>
                                              <div class="loadingio-spinner-ellipsis-mtbm9h5z8wj" style="display:none" id="spin-{{$product->id}}"><div class="ldio-1giid4wnjga">
                                               <div></div><div></div><div></div><div></div><div></div>
@@ -268,6 +268,7 @@
                                                     
 
                                                   })).catch(errors=>{
+                                                      console.log(errors);
                                                      
 
                                                   });
@@ -576,7 +577,7 @@
                      <h2>Gallery</h2>
 
                  </div>
-                 <div class="gallery-wrapper">
+                 <div class="gallery-wrapper"  data-aos="fade-up" data-aos-delay="200">
 
                  <div class="slider">
 
@@ -695,7 +696,7 @@
                          <h4>Join Our Newsletter</h4>
                          <p>Get news, tips, and </p>
                          <form action="" method="post">
-                             <input type="email" name="email"><input type="submit" value="Subscribe">
+                             <input type="email" name="email"><input type="submit" id="newsletter-submit" value="Subscribe">
                          </form>
                      </div>
                  </div>
