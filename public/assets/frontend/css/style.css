@@ -449,16 +449,23 @@ h1, h2, h3, h4, h5, h6 {
   height:48px;
 }
 .btn-submit{
-transition:0.3s;
+transition:0.2s;
 transition-timing-function: ease-in;
 background: #0597b4 !important;
+}
+.swal-text {
+  background-color: #FEFAE3;
+  padding: 17px;
+  font-weight: 500;
+ 
+  text-align: center;
+  color: #61534e;
 }
 .btn-submit:hover{
   background: transparent !important;
   border:1px solid #0597b4;
   padding:10px 8px;
   font-size: 22px;
-
   color: #242333 ;
   
 }
@@ -490,7 +497,7 @@ background: #0597b4 !important;
 .bid-item{
   background-color: #fcfcfd;
   border: 1px solid #cacaca41;
-  border-radius: 5px;
+  border-radius: 10px;
   margin-right: 8px ;
   margin-bottom: 10px;
 
@@ -588,8 +595,18 @@ background: #0597b4 !important;
 }
 .bid-items{
   padding:10px 10px 10px 40px;
-  background: #ff63471c;
+  background-image:linear-gradient(to right,#049cbb56, #ff634760,#298ca056,#da614c52) ;
   border-radius: 8px;
+}
+.description-bid{
+  max-height: 10vh;
+  min-height: 10vh;
+  overflow: hidden;
+  background: #fd7d141c;
+  padding:5px;
+  border-radius:10px 10px 0px 0px;
+  margin-bottom: 6px;
+
 }
 
 @media (max-width:600px) {

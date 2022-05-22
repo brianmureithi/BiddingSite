@@ -154,7 +154,9 @@
                                      </div>
 
                                      <h3 class="auction-title"><a href="#">{{ $product->name }}</a></h3>
+                                     <div class="description-bid">
                                      <p>{!! $product->description !!}</p>
+                                     </div>
                                      <div class="mpesa-desc d-flex">
                                          <h2 class="mpesa-title">Bid using Mpesa</h2>
                                          <p>Send just {{ $product->min_bid }} to paybill <b>000000</b> with <b>
@@ -260,14 +262,14 @@
                                                         document.getElementById("spin-{{$product->id}}").style.display = "none";
                                                     swal({  
                                                                            title: " Sigh!",  
-                                                                           text: "Seems like something wrong happened, please try again with valid phone number",  
+                                                                           text: "Seems like something wrong happened " + responseOne.data.errorMessage,  
                                                                            type: "error",  
                                                                         heightAuto: false,                                                                            button: "Okay",  
                                                                          });
                                                                         }
                                                     
 
-                                                  })).catch(errors=>{
+                                                  })).catch((errors)=>{
                                                       console.log(errors);
                                                      
 
@@ -511,7 +513,7 @@
                          <div class="icon-box winner-box">
                              <div class="box-item col-lg-6 col-xl-6">
                                  <img src="{{ URL::asset('/storage/img/motor.jpg') }}" class="img-fluid"
-                                     style=" margin-top:10px; margin-bottom:5px;" alt="{{ $product->name }}">
+                                     style=" margin-top:10px; margin-bottom:5px;" alt="">
                              </div>
                              <div class="box-item col-lg-6 col-xl-6">
                                  <h2 class="winning-bid-title">Honda Motorbike</h2>
@@ -779,15 +781,6 @@
  <script type="text/javascript">
 
 
-var counter = 1;
-setInterval(function(){
-    document.getElementById('radio' + counter).checked = true;
-    counter++;
-    if(counter > 4){
-        counter=1
-    }
-},4000);
-
 
 
     function startTimer(duration, display) {
@@ -817,12 +810,7 @@ setInterval(function(){
     display.textContent = days + "d " + hours + "h "
     + minutes + "m " + seconds + "s ";
 
-   /*  array.forEach(distance => {
-        document.getElementById("countdown-{{$product->id}}").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-        
-    });
- */
+  
 
     
 
