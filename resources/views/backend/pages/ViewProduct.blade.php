@@ -87,6 +87,16 @@
             </div>
   
           </div>
+          <div class="col-lg-12">
+  
+            <div class="card">
+              <div class="card-body view-item-card" >
+                <h5 class="card-title">Bids made on this Product</h5>
+                
+        </div>
+        </div>
+        </div>
+
         </div>
       </section>
     

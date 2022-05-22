@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\AuctionProduct;
+use App\Models\Bid;
 use Illuminate\Http\Request;
 
 class AuctionProductController extends Controller
@@ -80,6 +81,7 @@ try{
     public function showproducts(){
 
         $products= AuctionProduct::paginate('10');
+      
         return view('backend.pages.showAuctionProducts', compact('products'));
 
     }
@@ -96,8 +98,14 @@ try{
     public function show(AuctionProduct $auctionProduct, $id)
     {
         //
+        
         $Product= AuctionProduct::find($id);
-        return view('backend.pages.ViewProduct', compact('Product'));
+
+          /* Find bids on a product */
+          $bids= Bid::where('product_id','=',$id)->with('auctionProduct')->get();
+        
+
+        return view('backend.pages.ViewProduct', compact('Product','bids'));
     }
 
     /**
