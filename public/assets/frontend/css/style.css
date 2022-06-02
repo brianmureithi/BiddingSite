@@ -114,10 +114,10 @@ h1, h2, h3, h4, h5, h6 {
   transition: all 0.5s;
   z-index: 997;
   padding: 15px 0;
-  background-image: linear-gradient(to right,#0590ac,#01819b );
+  background-image: linear-gradient(to right,#01a2c2,#01819b );
 }
 #header.header-scrolled, #header.header-inner-pages {
-  background-image: linear-gradient(to right,#0590ac,#01819b );
+  background-image: linear-gradient(to right,#01a2c2,#01819b );
 }
 #header .logo {
   font-size: 34px;
@@ -575,7 +575,7 @@ background: #0597b4 !important;
 
 .rrp-item{
   margin-top: 10px;
-  background:#FF6347;
+  background:#ef6850;
     color: #fff;
     font-size: 18px;
     padding: 2px 6px;
@@ -657,6 +657,9 @@ background: #0597b4 !important;
   font-family: 'ubuntu', serif;
 
 }
+.box-item{
+  padding:6px;
+}
 .winning-bid-title:hover{
   color:#9c3f2e ;
 }
@@ -670,9 +673,9 @@ background: #0597b4 !important;
 }
 
 .tb-title{
-font-weight: bold;
+font-weight: 500;
 font-family: 'Ubuntu', serif;
-color: #FF6347;
+color: #BC2C1A;
 
 }
 .tb-content{
@@ -777,7 +780,7 @@ color: #FF6347;
 #hero {
   width: 100%;
   height: 80vh;
-  background-image: linear-gradient(to right,#0590ac,#01819b );
+  background-image: linear-gradient(to right,#01a2c2,#01819b );
 }
 #hero .container {
   padding-top: 72px;
@@ -794,15 +797,15 @@ color: #FF6347;
   color: #fff;
 }
 #hero h2 {
-  color: #fffff9d5;
+  color: #252525d5;
   margin-bottom: 50px;
-  font-family:'Ubuntu', Helvetica, sans-serif !important;
+  font-family:'Lato', Helvetica, sans-serif !important;
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 1px;
 }
 #hero h3 {
-  color: #242333;
+  color: #ffffff;
   margin-bottom: 30px;
   font-family:'Ubuntu', Helvetica, sans-serif !important;
   font-size: 20px;
@@ -820,7 +823,7 @@ color: #FF6347;
   transition: 0.5s;
   margin: 10px 0 0 0;
   color: #fff;
-  background: #FF6347;
+  background: #01819b;
 }
 #hero .btn-get-started:hover {
   background: transparent;
@@ -879,7 +882,7 @@ color: #FF6347;
     font-size: 18px;
     line-height: 24px;
     margin-bottom: 30px;
-    color: #242424;
+    color: #ffffff;
   }
   #hero .animated {
     animation: up-down 2s ease-in-out infinite alternate-reverse both;
@@ -939,13 +942,13 @@ color: #FF6347;
 
 
 .gallery-wrapper{
-  height:60vh;
+  height:75vh;
   margin:0;
   padding:0;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(224, 50, 7, 0.13);
+  background-color: rgba(7, 162, 224, 0.068);
 }
 
 .slider{
@@ -984,7 +987,7 @@ display: flex;
 justify-content: center;
 }
 .manual-btn{
-  border:2px solid rgba(224, 50, 7, 0.884);
+  border:2px solid #01839d;
   padding:5px;
   border-radius:10px;
   cursor:pointer;
@@ -995,7 +998,7 @@ justify-content: center;
   margin-right:40px;
 }
 .manual-btn:hover{
-  background:rgba(224, 50, 7, 0.884) ;
+  background:#01839d;
 }
 #radio1:checked ~ .first{
   margin-left:0;
@@ -1022,16 +1025,16 @@ justify-content: center;
   
 }
 #radio1:checked ~ .navigation-auto .auto-btn1{
-  background:rgba(224, 50, 7, 0.884) ;
+  background:#01839d;
 }
 #radio2:checked ~ .navigation-auto .auto-btn2{
-  background:rgba(224, 50, 7, 0.884) ;
+  background:#01839d ;
 }
 #radio3:checked ~ .navigation-auto .auto-btn3{
-  background:rgba(224, 50, 7, 0.884) ;
+  background:#01839d ;
 }
 #radio4:checked ~ .navigation-auto .auto-btn4{
-  background:rgba(224, 50, 7, 0.884) ;
+  background:#01839d ;
 }
 
 .navigation-auto div{
@@ -1053,10 +1056,11 @@ justify-content: center;
   font-size: 32px;
   font-weight: bold;
   text-transform: uppercase;
+  font-weight: 500;
   margin-bottom: 20px;
   padding-bottom: 20px;
   position: relative;
-  color: #FF6347;
+  color: #202e38bc;
 }
 .section-title h2::before {
   content: "";
@@ -2048,7 +2052,7 @@ justify-content: center;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
 }
 #footer .footer-newsletter form input[type=submit]:hover {
-  background: #FF6347
+  background: #50858B
   ;
 }
 #footer .footer-top {
