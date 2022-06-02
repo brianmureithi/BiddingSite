@@ -168,13 +168,13 @@
                                          <form class="bid-form" method="POST"
                                              action="{{ route('store-bid') }}" enctype="multipart/form-data">
                                              @csrf
-                                             <input name="phone" id="phone-{{$product->id}}" class="form-input form-control" type="number"
-                                                 placeholder="enter phonenumber e.g 0712345678" />
+                                             <input name="phone" id="phone-{{$product->id}}" class="form-input form-control" type="text"
+                                                 placeholder="phonenumber e.g 0712345678" />
                                                  <span id="error-{{$product->id}}"  style="display:none" class="alert alert-warning"></span>
                                              <input name="product_id" id="product_id-{{$product->id}}" class="form-input form-control d-none" type="number"
                                                  value="{{$product->id}}" />
                                              <input name="amount" class="form-input form-control" id="bid-{{$product->id}}" type="number"
-                                                 placeholder="enter Bid amount e.g 32" />
+                                                 placeholder="Unique bid amount e.g 81" />
                                                  <span id="error-amount-{{$product->id}}"  style="display:none" class="alert alert-warning"></span>
                                              <button type="submit" class="btn-submit btn btn-lg btn-success" id="btn-bid-{{$product->id}}">Submit</button>
                                              <div class="loadingio-spinner-ellipsis-mtbm9h5z8wj" style="display:none" id="spin-{{$product->id}}"><div class="ldio-1giid4wnjga">
@@ -512,7 +512,7 @@
                          data-aos-delay="100">
                          <div class="icon-box winner-box">
                              <div class="box-item col-lg-6 col-xl-6">
-                                 <img src="{{ URL::asset('/storage/img/motor.jpg') }}" class="img-fluid"
+                                 <img src="{{ URL::asset('/assets/frontend/img/motor.jpg') }}" class="img-fluid"
                                      style=" margin-top:10px; margin-bottom:5px;" alt="">
                              </div>
                              <div class="box-item col-lg-6 col-xl-6">
@@ -532,7 +532,7 @@
                                          <p class="tb-content"> KES 20</p>
                                      </div>
                                      <div class="tb-item">
-                                         <h6 class="tb-title">End Time Bid</h6>
+                                         <h6 class="tb-title">Ended</h6>
                                          <p class="tb-content"> Feb. 23, 2022, 0:11</p>
                                      </div>
 
@@ -586,12 +586,8 @@
                     @if (count($images) > 0 ) 
                  
 
-                    <div class="slides">
-                      
-                            
-                     
-           
-
+                    <div class="slides">                
+                       
                         <input type="radio" name="radio-btn" id="radio{{$images[0]->id}}">
                         <input type="radio" name="radio-btn" id="radio{{$images[1]->id}}">
                         <input type="radio" name="radio-btn" id="radio{{$images[2]->id}}">
@@ -633,6 +629,12 @@
 
                  </div>
                  </div>
+                 @elseif (count($images) <= 0 ) 
+                 <div class="alert alert-danger">
+                     There no images in the gallery at the moment
+
+                                            </div>
+
                  @endif
 
                
@@ -674,6 +676,10 @@
                         </li>
                              
                          @empty
+                         <div class="alert alert-danger">
+                             Sorry, there are no FAQS at the moment
+
+                                            </div>
                              
                          @endforelse
                              
@@ -779,6 +785,15 @@
              class="bi bi-arrow-up-short "></i></a>
  @endsection
  <script type="text/javascript">
+ var counter = 1;
+ setInterval(function(){
+     document.getElementById('radio'+counter).checked=true;
+     counter++;
+     if(counter>3){
+         counter=1;
+     }
+
+ },4000)
 
 
 
