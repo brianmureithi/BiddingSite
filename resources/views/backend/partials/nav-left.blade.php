@@ -73,7 +73,7 @@
             </a>
           </li>
           <li>
-            <a href="charts-apexcharts.html">
+            <a href="{{route('view.faqs')}}">
               <i class="bi bi-circle"></i><span>View FAQs</span>
             </a>
           </li>

@@ -14,6 +14,9 @@ class FAQModelController extends Controller
      */
     public function index()
     {
+        $allfaqs=FAQModel::all();
+        return view('backend.pages.viewFAQS', compact('allfaqs'));
+
         //
     }
 
