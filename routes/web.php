@@ -44,6 +44,7 @@ Route::group( ['middleware' => ['auth']
     Route::get('/view_product/{id}', [App\Http\Controllers\AuctionProductController::class, 'show'])->name('viewproduct');
     Route::get('/view-bids', [App\Http\Controllers\BidController::class, 'index'])->name('view.bids');
     Route::get('/addfaqs', [App\Http\Controllers\FAQModelController::class, 'create'])->name('add.faq');
+    Route::get('/viewfaqs', [App\Http\Controllers\FAQModelController::class, 'index'])->name('view.faqs');
     Route::get('/addimages', [App\Http\Controllers\GalleryController::class, 'create'])->name('add.images');
     Route::get('/viewimages', [App\Http\Controllers\GalleryController::class, 'show'])->name('show.images');
     Route::post('/storefaqs', [App\Http\Controllers\FAQModelController::class, 'store'])->name('store.faqs');
